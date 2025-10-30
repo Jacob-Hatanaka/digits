@@ -1,3 +1,8 @@
+:root {
+  --nat-navbar-bg: #5a4242;
+  --nat-navbar-bg-rgb: 60, 40, 60;
+  --nat-navbar-text-color: white;
+}
 html,
 body {
   --bs-light-rgb: 236, 236, 236;
@@ -11,4 +16,23 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+}
+footer, footer a {
+  color: var(--nat-navbar-text-color);
+}
+body {
+  --bs-dark: var(--nat-navbar-bg);
+  --bs-dark-rgb: var(--nat-navbar-bg-rgb);
+  background: fixed center url('/images/skybg.jpg');
+  background-size: cover;
+}
+body .navbar {
+  --bs-navbar-active-color: var(--nat-navbar-highlight-text);
+  --bs-navbar-brand-color: var(--nat-navbar-text-color);
+  --bs-navbar-brand-hover-color: var(--nat-navbar-highlight-text);
+  --bs-navbar-color: var(--nat-navbar-text-color);
+  --bs-navbar-hover-color: var(--nat-navbar-highlight-text);
+}
+.bg-dark a.dropdown-item {
+  color: var(--nat-navbar-bg);
 }
