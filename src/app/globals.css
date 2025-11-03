@@ -2,6 +2,7 @@
   --nat-navbar-bg: #410000;
   --nat-navbar-bg-rgb: 50, 0, 0;
   --nat-navbar-text-color: white;
+  --nat-navbar-highlight-text: #cfcfcf;
 }
 html,
 body {
