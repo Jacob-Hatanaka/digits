@@ -1,11 +1,13 @@
 'use client';
 
-import { Contact } from '@prisma/client';
+import { Contact, Note } from '@prisma/client';
 import Link from 'next/link';
-import { Card, Image } from 'react-bootstrap';
+import { Card, Image, ListGroup } from 'react-bootstrap';
+import NoteItem from './NoteItem';
+import AddNoteForm from './AddNoteForm';
 
 /* Renders a single row in the List Stuff table. See list/page.tsx. */
-const ContactCard = ({ contact }: { contact: Contact }) => (
+const ContactCard = ({ contact, notes }: { contact: Contact; notes: Note[] }) => (
   <Card className="h-100">
     <Card.Header>
       <Image src={contact.image} width={75} />
@@ -16,7 +18,16 @@ const ContactCard = ({ contact }: { contact: Contact }) => (
       </Card.Title>
       <Card.Subtitle>{contact.address}</Card.Subtitle>
     </Card.Header>
-    <Card.Body>{contact.description}</Card.Body>
+    <Card.Body>
+      {contact.description}
+      <ListGroup variant="flush">
+        {notes.map((note) => (
+          <NoteItem key={note.id} note={note} />
+        ))}
+      </ListGroup>
+      <AddNoteForm contactId={contact.id} />
+    </Card.Body>
+
     <Card.Footer>
       <Link href={`edit/${contact.id}`}>Edit</Link>
     </Card.Footer>
