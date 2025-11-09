@@ -1,13 +1,12 @@
 import { getServerSession } from 'next-auth';
 import { Col, Container, Row } from 'react-bootstrap';
 // import { prisma } from '@/lib/prisma';
-// import StuffItem from '@/components/StuffItem';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import authOptions from '@/lib/authOptions';
 import ContactCard from '@/components/ContactCard';
 import { prisma } from '@/lib/prisma';
 
-/** Render a list of stuff for the logged in user. */
+/** Render a list of contacts for the logged in user. */
 const ListPage = async () => {
   // Protect the page, only logged in users can access it.
   const session = await getServerSession(authOptions);
@@ -28,7 +27,6 @@ const ListPage = async () => {
       owner,
     },
   });
-  // console.log(stuff);
   return (
     <main>
       <Container id="list" fluid className="py-3">
